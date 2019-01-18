@@ -1,0 +1,13 @@
+---
+
+- name: RSYSLOG | Copy template with rsyslog configuration
+  template:
+    src: etc/rsyslog.conf.j2
+    dest: "{{ rsyslog_config_file }}"
+    owner: "{{ rsyslog_user }}"
+    group: "{{ rsyslog_group }}"
+  notify: restart rsyslog
+
+- name: RSYSLOG | Check rsyslog config is valid
+  command: rsyslogd -N1
+  changed_when: false

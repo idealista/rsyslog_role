@@ -1,0 +1,56 @@
+---
+
+- name: RSYSLOG | Ensure rsyslog group
+  group:
+    name: "{{ rsyslog_group }}"
+
+- name: RSYSLOG | Ensure rsyslog user
+  user:
+    name: "{{ rsyslog_user }}"
+    group: "{{ rsyslog_group }}"
+    shell: /bin/false
+    create_home: true
+
+- name: RSYSLOG | Ensure rsyslog dirs exists
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ rsyslog_user }}"
+    group: "{{ rsyslog_group }}"
+  loop:
+    - "{{ rsyslog_work_directory }}"
+    - "{{ rsyslog_include_config_matcher | dirname }}"
+
+- name: RSYSLOG | Install required libs
+  apt:
+    name: "{{ rsyslog_required_libs }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  notify: restart rsyslog
+
+- name: RSYSLOG | Install rsyslog core package
+  apt:
+    name: rsyslog={{ rsyslog_version }}
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  notify: restart rsyslog
+
+- name: RSYSLOG | Install rsyslog feature packages
+  apt:
+    name: "{{ rsyslog_feature_packages }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  notify: restart rsyslog
+
+- name: RSYSLOG | Copy include config templates
+  template:
+    src: "{{ item }}"
+    dest: "{{ rsyslog_include_config_path }}/{{ item | basename }}"
+    owner: "{{ rsyslog_user }}"
+    group: "{{ rsyslog_group }}"
+  with_fileglob:
+    - "{{ rsyslog_included_config_template_path }}/*"
+  notify: restart rsyslog

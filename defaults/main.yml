@@ -1,0 +1,44 @@
+---
+## General
+rsyslog_version: 8.24.0-1
+
+## Required libs for rsyslog or installed modules
+rsyslog_required_libs: []
+
+## Service options
+
+# Owner
+rsyslog_user: rsyslog
+rsyslog_group: rsyslog
+
+# Files & Paths
+rsyslog_work_directory: /var/spool/rsyslog
+rsyslog_config_file: /etc/rsyslog.conf
+rsyslog_include_config_path: /etc/rsyslog.d
+rsyslog_include_config_matcher: "{{ rsyslog_include_config_path }}/*.conf"
+rsyslog_included_config_template_path: "{{ playbook_dir }}/templates/{{ rsyslog_include_config_path }}"
+
+# List of rsyslog feature packages to install.
+# Check: https://www.rsyslog.com/doc/v8-stable/installation/packages.html#package-structure
+#
+# Available packages under Debian 9 are: (extracted from '$ apt-cache search rsyslog')
+#
+# gosa-plugin-rsyslog - rsyslog plugin for GOsa?
+# puppet-module-saz-rsyslog - Puppet module for rsyslog
+# rsyslog-czmq - ZeroMQ protocol support for rsyslog via CZMQ
+# rsyslog-elasticsearch - Elasticsearch output plugin for rsyslog
+# rsyslog-gnutls - TLS protocol support for rsyslog
+# rsyslog-gssapi - GSSAPI authentication and encryption support for rsyslog
+# rsyslog-hiredis - Redis output plugin for rsyslog
+# rsyslog-kafka - Kafka output plugin for rsyslog
+# rsyslog-mongodb - MongoDB output plugin for rsyslog
+# rsyslog-mysql - MySQL output plugin for rsyslog
+# rsyslog-pgsql - PostgreSQL output plugin for rsyslog
+# rsyslog-relp - RELP protocol support for rsyslog
+# rsyslog-doc - documentation for rsyslog
+#
+# Format:
+# rsyslog_feature_packages:
+#  - package_name=package_version
+#
+rsyslog_feature_packages: []

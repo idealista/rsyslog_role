@@ -1,0 +1,43 @@
+# Molecule managed
+
+---
+
+file:
+  /etc/rsyslog.conf:
+    exists: true
+    filetype: file
+  /var/run/rsyslogd.pid:
+    exists: true
+    filetype: file
+  /etc/rsyslog.d:
+    exists: true
+    filetype: directory
+    owner: {{ rsyslog_user }}
+    group: {{ rsyslog_group }}
+  /var/spool/rsyslog:
+    exists: true
+    filetype: directory
+    owner: {{ rsyslog_user }}
+    group: {{ rsyslog_group }}
+service:
+  rsyslog:
+    enabled: true
+    running: true
+
+package:
+  rsyslog:
+    installed: true
+    versions:
+      - {{ rsyslog_version }}
+{% for rsyslog_required_lib in rsyslog_required_libs %}
+  {{ rsyslog_required_lib.split('=')[0] }}:
+    installed: true
+    versions:
+      - {{ rsyslog_required_lib.split('=')[1] }}
+{% endfor %}
+{% for rsyslog_feature_package in rsyslog_feature_packages %}
+  {{ rsyslog_feature_package.split('=')[0] }}:
+    installed: true
+    versions:
+      - {{ rsyslog_feature_package.split('=')[1] }}
+{% endfor %}
