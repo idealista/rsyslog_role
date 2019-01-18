@@ -27,6 +27,8 @@
     state: present
     update_cache: true
     cache_valid_time: 3600
+  register: rsyslog_required_libs_installed
+  until: rsyslog_required_libs_installed is succeeded
   notify: restart rsyslog
 
 - name: RSYSLOG | Install rsyslog core package
@@ -35,6 +37,8 @@
     state: present
     update_cache: true
     cache_valid_time: 3600
+  register: rsyslog_core_package_installed
+  until: rsyslog_core_package_installed is succeeded
   notify: restart rsyslog
 
 - name: RSYSLOG | Install rsyslog feature packages
@@ -43,6 +47,8 @@
     state: present
     update_cache: true
     cache_valid_time: 3600
+  register: rsyslog_feature_packages_installed
+  until: rsyslog_feature_packages_installed is succeeded
   notify: restart rsyslog
 
 - name: RSYSLOG | Copy include config templates
