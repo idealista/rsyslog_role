@@ -1,0 +1,8 @@
+---
+
+- name: RSYSLOG | Configuring service
+  systemd:
+    name: rsyslog
+    state: "{{ rsyslog_service_state }}"
+    enabled: "{{ rsyslog_service_enabled }}"
+    daemon_reload: true
