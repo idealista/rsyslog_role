@@ -6,8 +6,8 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: rsyslog
-    image: geerlingguy/docker-debian9-ansible
+  - name: rsyslog-${MOLECULE_DISTRO:-debian9}
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible
     privileged: true
     capabilities:
       - SYS_ADMIN

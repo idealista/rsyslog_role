@@ -8,4 +8,5 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
+        - jessie
         - stretch
