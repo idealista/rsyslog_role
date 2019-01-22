@@ -35,7 +35,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.rsyslog_role
-  version: 1.0.0
+  version: 1.2.0
   name: rsyslog
 ```
 
@@ -62,10 +62,10 @@ Look to the [defaults vars](defaults/main.yml) file to see the possible configur
 
 ```
 $ pipenv install -r test-requirements.txt --python 2.7
-
-# This will execute tests but doesn't destroy created environment (because of --destroy=never)
-$ pipenv run molecule test --destroy=never
+$ MOLECULE_DISTRO=(debian8|debian9) pipenv run molecule test
 ```
+
+Note: Debian9 (Debian Stretch) will be used as default linux distro if none is provided.
 
 See [molecule.yml](https://github.com/idealista/rsyslog_role/blob/master/molecule/default/molecule.yml) to check possible testing platforms.
 
