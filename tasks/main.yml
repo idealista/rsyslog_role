@@ -9,3 +9,8 @@
   import_tasks: config.yml
   tags:
     - rsyslog-config
+
+- name: RSYSLOG | Service
+  import_tasks: service.yml
+  tags:
+    - rsyslog-service

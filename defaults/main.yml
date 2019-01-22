@@ -6,6 +6,10 @@ rsyslog_version: 8.24.0-1
 rsyslog_required_libs: []
 
 ## Service options
+# start on boot
+rsyslog_service_enabled: true
+# current state: started, stopped
+rsyslog_service_state: started
 
 # Owner
 rsyslog_user: rsyslog
