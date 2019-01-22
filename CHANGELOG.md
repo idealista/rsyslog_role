@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/rsyslog_role/tree/develop)
 
+## [1.2.0](https://github.com/idealista/rsyslog_role/tree/1.2.0)
+### Added
 - *[#4](https://github.com/idealista/rsyslog_role/issues/4) Supporting Debian Jessie* @dortegau
 
 ## [1.1.0](https://github.com/idealista/rsyslog_role/tree/1.1.0)
