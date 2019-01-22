@@ -27,8 +27,6 @@ service:
 package:
   rsyslog:
     installed: true
-    versions:
-      - {{ rsyslog_version }}
 {% for rsyslog_required_lib in rsyslog_required_libs %}
   {{ rsyslog_required_lib.split('=')[0] }}:
     installed: true
@@ -38,6 +36,4 @@ package:
 {% for rsyslog_feature_package in rsyslog_feature_packages %}
   {{ rsyslog_feature_package.split('=')[0] }}:
     installed: true
-    versions:
-      - {{ rsyslog_feature_package.split('=')[1] }}
 {% endfor %}

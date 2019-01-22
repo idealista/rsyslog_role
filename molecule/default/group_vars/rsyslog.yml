@@ -1,7 +1,7 @@
 ---
 
 rsyslog_feature_packages: 
-  - rsyslog-doc=8.24.0-1
+  - rsyslog-doc
 
 ## omfile specific config (used in provided config template)
 rsyslog_omfile_file_location: /var/log/messages
