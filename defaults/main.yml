@@ -20,7 +20,7 @@ rsyslog_work_directory: /var/spool/rsyslog
 rsyslog_config_file: /etc/rsyslog.conf
 rsyslog_include_config_path: /etc/rsyslog.d
 rsyslog_include_config_matcher: "{{ rsyslog_include_config_path }}/*.conf"
-rsyslog_included_config_template_path: "{{ playbook_dir }}/templates/{{ rsyslog_include_config_path }}"
+rsyslog_included_config_template_path: "{{ playbook_dir }}/templates{{ rsyslog_include_config_path }}"
 
 # List of rsyslog feature packages to install.
 # Check: https://www.rsyslog.com/doc/v8-stable/installation/packages.html#package-structure
