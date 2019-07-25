@@ -8,6 +8,7 @@ lint:
 platforms:
   - name: rsyslog-${MOLECULE_DISTRO:-debian9}
     image: geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible
+    privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
