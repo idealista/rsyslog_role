@@ -4,5 +4,3 @@ tests/__pycache__
 .molecule
 .cache
 .python-version
-Pipfile
-Pipfile.lock
