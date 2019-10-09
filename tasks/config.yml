@@ -4,8 +4,8 @@
   template:
     src: etc/rsyslog.conf.j2
     dest: "{{ rsyslog_config_file }}"
-    owner: "{{ rsyslog_user }}"
-    group: "{{ rsyslog_group }}"
+    owner: "{{ rsyslog_user | default('root') }}"
+    group: "{{ rsyslog_group | default('root') }}"
     mode: 0644
 
   notify: restart rsyslog

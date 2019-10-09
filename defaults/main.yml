@@ -21,8 +21,8 @@ rsyslog_service_enabled: true
 rsyslog_service_state: started
 
 # Owner
-rsyslog_user: rsyslog
-rsyslog_group: rsyslog
+# rsyslog_user: rsyslog
+# rsyslog_group: rsyslog
 
 # Files & Paths
 rsyslog_work_directory: /var/spool/rsyslog

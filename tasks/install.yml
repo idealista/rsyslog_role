@@ -4,6 +4,7 @@
   group:
     name: "{{ rsyslog_group }}"
     system: true
+  when: rsyslog_group is defined
 
 - name: RSYSLOG | Ensure rsyslog user
   user:
@@ -13,13 +14,14 @@
     shell: /bin/false
     create_home: false
     system: true
+  when: rsyslog_user is defined and rsyslog_group is defined
 
 - name: RSYSLOG | Ensure rsyslog dirs exist
   file:
     path: "{{ item }}"
     state: directory
-    owner: "{{ rsyslog_user }}"
-    group: "{{ rsyslog_group }}"
+    owner: "{{ rsyslog_user | default('root') }}"
+    group: "{{ rsyslog_group | default('root') }}"
   loop:
     - "{{ rsyslog_work_directory }}"
     - "{{ rsyslog_include_config_matcher | dirname }}"
@@ -59,8 +61,8 @@
   template:
     src: "{{ item }}"
     dest: "{{ rsyslog_include_config_path }}/{{ item | basename }}"
-    owner: "{{ rsyslog_user }}"
-    group: "{{ rsyslog_group }}"
+    owner: "{{ rsyslog_user | default('root') }}"
+    group: "{{ rsyslog_group | default('root') }}"
   with_fileglob:
     - "{{ rsyslog_included_config_template_path }}/*"
   notify: restart rsyslog

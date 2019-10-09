@@ -14,13 +14,13 @@ file:
   /etc/rsyslog.d:
     exists: true
     filetype: directory
-    owner: {{ rsyslog_user }}
-    group: {{ rsyslog_group }}
+    owner: {{ rsyslog_user | default('root') }}
+    group: {{ rsyslog_group | default('root') }}
   /var/spool/rsyslog:
     exists: true
     filetype: directory
-    owner: {{ rsyslog_user }}
-    group: {{ rsyslog_group }}
+    owner: {{ rsyslog_user | default('root') }}
+    group: {{ rsyslog_group | default('root') }}
 service:
   rsyslog:
     enabled: true
