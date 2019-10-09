@@ -9,9 +9,9 @@ install:
   - pipenv sync
 env:
   matrix:
-    - MOLECULE_DISTRO=debian8
-    - MOLECULE_DISTRO=debian9
-    - MOLECULE_DISTRO=debian10
+    - MOLECULE_DISTRO=debian:jessie-slim
+    - MOLECULE_DISTRO=debian:stretch-slim
+    - MOLECULE_DISTRO=debian:buster-slim
 script:
   - pipenv run molecule test
 
