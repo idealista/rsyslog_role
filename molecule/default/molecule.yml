@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: rsyslog-${MOLECULE_DISTRO:-debian_buster}
+  - name: rsyslog-test
     image: ${MOLECULE_DISTRO:-debian:buster-slim}
     privileged: false
     capabilities:
