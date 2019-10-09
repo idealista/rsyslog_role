@@ -26,8 +26,6 @@
     - "{{ rsyslog_include_config_matcher | dirname }}"
     - "{{ rsyslog_logs_directory }}"
 
-
-
 - name: RSYSLOG | Install required libs
   apt:
     name: "{{ rsyslog_required_libs }}"
