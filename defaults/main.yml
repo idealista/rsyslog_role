@@ -1,6 +1,15 @@
 ---
 ## General
-rsyslog_version: 8.24.0-1
+rsyslog_package: "rsyslog"
+rsyslog_use_pidfile: true
+rsyslog_pidfile: /var/run/rsyslogd.pid
+# If you want to set a package version; else the role will install the latest version:
+# Debian Buster
+# rsyslog_package: "rsyslog=8.1901.0-1"
+# Debian Stretch
+# rsyslog_package: "rsyslog=8.24.0-1"
+# Debian Jessie
+# rsyslog_package: "rsyslog=8.4.2-1+deb8u2"
 
 ## Required libs for rsyslog or installed modules
 rsyslog_required_libs: []
@@ -17,6 +26,7 @@ rsyslog_group: rsyslog
 
 # Files & Paths
 rsyslog_work_directory: /var/spool/rsyslog
+rsyslog_logs_directory: /var/log
 rsyslog_config_file: /etc/rsyslog.conf
 rsyslog_include_config_path: /etc/rsyslog.d
 rsyslog_include_config_matcher: "{{ rsyslog_include_config_path }}/*.conf"
