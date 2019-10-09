@@ -1,30 +1,32 @@
 ---
 
-- name: RSYSLOG | Gather OS specific variables
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
-
 - name: RSYSLOG | Ensure rsyslog group
   group:
     name: "{{ rsyslog_group }}"
+    system: true
 
 - name: RSYSLOG | Ensure rsyslog user
   user:
     name: "{{ rsyslog_user }}"
     group: "{{ rsyslog_group }}"
+    groups: systemd-journal
     shell: /bin/false
-    create_home: true
+    create_home: false
+    system: true
 
-- name: RSYSLOG | Ensure rsyslog dirs exists
+- name: RSYSLOG | Ensure rsyslog dirs exist
   file:
     path: "{{ item }}"
     state: directory
     owner: "{{ rsyslog_user }}"
     group: "{{ rsyslog_group }}"
+    mode: 0755
   loop:
     - "{{ rsyslog_work_directory }}"
     - "{{ rsyslog_include_config_matcher | dirname }}"
+    - "{{ rsyslog_logs_directory }}"
+
+
 
 - name: RSYSLOG | Install required libs
   apt:
@@ -38,7 +40,7 @@
 
 - name: RSYSLOG | Install rsyslog core package
   apt:
-    name: rsyslog={{ rsyslog_version }}
+    name: "{{ rsyslog_package }}"
     state: present
     update_cache: true
     cache_valid_time: 3600
