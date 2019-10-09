@@ -6,9 +6,11 @@ file:
   /etc/rsyslog.conf:
     exists: true
     filetype: file
+{% if rsyslog_use_pidfile %}
   /var/run/rsyslogd.pid:
     exists: true
     filetype: file
+{% endif %}
   /etc/rsyslog.d:
     exists: true
     filetype: directory

@@ -6,16 +6,21 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: rsyslog-${MOLECULE_DISTRO:-debian9}
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible
-    privileged: true
+  - name: rsyslog-${MOLECULE_DISTRO:-debian_buster}
+    image: ${MOLECULE_DISTRO:-debian:buster-slim}
+    privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+      - '/sys/fs/fuse/connections:/sys/fs/fuse/connections:ro'
     groups:
       - rsyslog
     command: '/lib/systemd/systemd'
+    tmpfs:
+      - '/run'
+    devices:
+      - '/dev/fuse:/dev/fuse'
 provisioner:
   name: ansible
   lint:
