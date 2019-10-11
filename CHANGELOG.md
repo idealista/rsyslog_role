@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/rsyslog_role/tree/develop)
+
+## [2.0.0](https://github.com/idealista/rsyslog_role/tree/2.0.0)
 ### Added
 - *[#7](https://github.com/idealista/rsyslog_role/issues/7) Support all Debian versions (avoding fix rsyslog_version* @frantsao
 - *[#8](https://github.com/idealista/rsyslog_role/issues/8) Fix extra slash in templates path var* @frantsao
