@@ -32,12 +32,15 @@ module(load="imklog")   # provides kernel logging support
 # To enable high precision timestamps, comment out the following line.
 #
 $ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
-
+{% if rsyslog_user is defined and rsyslog_group is defined %}
+$PrivDropToUser {{ rsyslog_user | default('root') }}
+$PrivDropToGroup {{ rsyslog_group |default('root') }}
+{% endif %}
 #
 # Set the default permissions for all log files.
 #
-$FileOwner root
-$FileGroup adm
+$FileOwner {{ rsyslog_user | default('root') }}
+$FileGroup {{ rsyslog_user | default('adm') }}
 $FileCreateMode 0640
 $DirCreateMode 0755
 $Umask 0022

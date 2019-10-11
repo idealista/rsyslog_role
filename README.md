@@ -24,7 +24,7 @@ These instructions will get you a copy of the role for your Ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.5.5.0 version installed.
+Ansible 2.8.0.0 version installed.
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
@@ -35,7 +35,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.rsyslog_role
-  version: 1.2.0
+  version: 2.0.0
   name: rsyslog
 ```
 
@@ -61,8 +61,8 @@ Look to the [defaults vars](defaults/main.yml) file to see the possible configur
 ## Testing
 
 ```
-$ pipenv install -r test-requirements.txt --python 2.7
-$ MOLECULE_DISTRO=(debian8|debian9) pipenv run molecule test
+$ pipenv sync
+$ MOLECULE_DISTRO=(debian8|debian9|debian10) pipenv run molecule test
 ```
 
 Note: Debian9 (Debian Stretch) will be used as default linux distro if none is provided.

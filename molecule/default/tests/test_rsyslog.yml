@@ -6,19 +6,21 @@ file:
   /etc/rsyslog.conf:
     exists: true
     filetype: file
+{% if rsyslog_use_pidfile %}
   /var/run/rsyslogd.pid:
     exists: true
     filetype: file
+{% endif %}
   /etc/rsyslog.d:
     exists: true
     filetype: directory
-    owner: {{ rsyslog_user }}
-    group: {{ rsyslog_group }}
+    owner: {{ rsyslog_user | default('root') }}
+    group: {{ rsyslog_group | default('root') }}
   /var/spool/rsyslog:
     exists: true
     filetype: directory
-    owner: {{ rsyslog_user }}
-    group: {{ rsyslog_group }}
+    owner: {{ rsyslog_user | default('root') }}
+    group: {{ rsyslog_group | default('root') }}
 service:
   rsyslog:
     enabled: true

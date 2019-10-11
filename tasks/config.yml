@@ -1,13 +1,24 @@
 ---
 
-- name: RSYSLOG | Copy template with rsyslog configuration
+- name: RSYSLOG | Deploy rsyslog configuration
   template:
     src: etc/rsyslog.conf.j2
     dest: "{{ rsyslog_config_file }}"
-    owner: "{{ rsyslog_user }}"
-    group: "{{ rsyslog_group }}"
+    owner: "{{ rsyslog_user | default('root') }}"
+    group: "{{ rsyslog_group | default('root') }}"
+    mode: 0644
+
   notify: restart rsyslog
 
 - name: RSYSLOG | Check rsyslog config is valid
   command: rsyslogd -N1
   changed_when: false
+
+- name: RSYSLOG | Deploy rsyslog service configuration
+  template:
+    src: lib/systemd/system/rsyslog.service.j2
+    dest: /lib/systemd/system/rsyslog.service
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart rsyslog
