@@ -14,12 +14,16 @@ module(load="imuxsock") # provides support for local system logging
 module(load="imklog")   # provides kernel logging support
 #module(load="immark")  # provides --MARK-- message capability
 
+{% if rsyslog_enable_module_imudp %}
 # provides UDP syslog reception
-#module(load="imudp")
+module(load="imudp")
+{% endif %}
 #input(type="imudp" port="514")
 
+{% if rsyslog_enable_module_imtcp %}
 # provides TCP syslog reception
-#module(load="imtcp")
+module(load="imtcp")
+{% endif %}
 #input(type="imtcp" port="514")
 
 
@@ -34,7 +38,7 @@ module(load="imklog")   # provides kernel logging support
 $ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
 {% if rsyslog_user is defined and rsyslog_group is defined %}
 $PrivDropToUser {{ rsyslog_user | default('root') }}
-$PrivDropToGroup {{ rsyslog_group |default('root') }}
+$PrivDropToGroup {{ rsyslog_group | default('root') }}
 {% endif %}
 #
 # Set the default permissions for all log files.
