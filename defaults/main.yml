@@ -56,3 +56,7 @@ rsyslog_included_config_template_path: "{{ playbook_dir }}/templates{{ rsyslog_i
 #  - package_name=package_version
 #
 rsyslog_feature_packages: []
+
+
+rsyslog_enable_module_imtcp: false
+rsyslog_enable_module_imudp: false
