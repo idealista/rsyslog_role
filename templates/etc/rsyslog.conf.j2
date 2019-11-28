@@ -17,14 +17,16 @@ module(load="imklog")   # provides kernel logging support
 {% if rsyslog_enable_module_imudp %}
 # provides UDP syslog reception
 module(load="imudp")
+input(type="imudp" port="{{ rsyslog_imudp_port }}")
 {% endif %}
-#input(type="imudp" port="514")
+
 
 {% if rsyslog_enable_module_imtcp %}
 # provides TCP syslog reception
 module(load="imtcp")
+input(type="imtcp" port="{{ rsyslog_imtcp_port }}")
 {% endif %}
-#input(type="imtcp" port="514")
+
 
 
 ###########################
