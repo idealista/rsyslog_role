@@ -27,7 +27,9 @@ module(load="imtcp")
 input(type="imtcp" port="{{ rsyslog_imtcp_port }}")
 {% endif %}
 
-
+{% if rsyslog_enable_module_imfile %}
+module(load="imfile")
+{% endif %}
 
 ###########################
 #### GLOBAL DIRECTIVES ####
