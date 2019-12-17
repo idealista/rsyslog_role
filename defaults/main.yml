@@ -63,3 +63,5 @@ rsyslog_imtcp_port: 514
 
 rsyslog_enable_module_imudp: false
 rsyslog_imudp_port: 514
+
+rsyslog_enable_module_imfile: false
