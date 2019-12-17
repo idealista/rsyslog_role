@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/rsyslog_role/tree/develop)
 
+## [2.0.3](https://github.com/idealista/rsyslog_role/tree/2.0.3)
+### Added
+- *Load imfile module optionally* @miguel-chacon
+
 ## [2.0.2](https://github.com/idealista/rsyslog_role/tree/2.0.2)
 ### Added
 - *Fix missing imtcp and imudp ports* @miguel-chacon
