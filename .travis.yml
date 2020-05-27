@@ -2,13 +2,14 @@
 dist: xenial
 language: python
 python: "3.7"
+os: linux
 services:
   - docker
 install:
   - pip install pipenv
   - pipenv sync
 env:
-  matrix:
+  jobs:
     - MOLECULE_DISTRO=debian:jessie-slim
     - MOLECULE_DISTRO=debian:stretch-slim
     - MOLECULE_DISTRO=debian:buster-slim
