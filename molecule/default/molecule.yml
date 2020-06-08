@@ -3,8 +3,9 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+    yamllint .
+      ansible-lint .
 platforms:
   - name: rsyslog-test
     image: ${MOLECULE_DISTRO:-debian:buster-slim}
@@ -19,6 +20,7 @@ platforms:
     command: '/lib/systemd/systemd'
     tmpfs:
       - '/run'
+      - '/run/lock'
     devices:
       - '/dev/fuse:/dev/fuse'
 provisioner:
@@ -28,6 +30,4 @@ provisioner:
 scenario:
   name: default
 verifier:
-  name: goss
-  lint:
-    name: yamllint
+  name: ansible

@@ -24,7 +24,7 @@ These instructions will get you a copy of the role for your Ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.8.0.0 version installed.
+Ansible 2.9.x.x version installed.
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
@@ -35,7 +35,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.rsyslog_role
-  version: 2.0.0
+  version: 2.1.0
   name: rsyslog
 ```
 
@@ -71,8 +71,8 @@ See [molecule.yml](https://github.com/idealista/rsyslog_role/blob/master/molecul
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.5.5.0-green.svg)
-![Molecule](https://img.shields.io/badge/molecule-2.19.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.9.9-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-3.0.4-green.svg)
 
 ## Versioning
 
