@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/rsyslog_role/tree/develop)
+
+## [2.1.0](https://github.com/idealista/rsyslog_role/tree/2.1.0)
+[Full Changelog](https://github.com/idealista/rsyslog_role/compare/2.0.3...2.1.0)
 ### Changed
 - *[#20](https://github.com/idealista/rsyslog_role/issues/20) Updated molecule, goss, ansible in requirements; updated metadata* @frantsao
 
