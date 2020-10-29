@@ -20,11 +20,14 @@ rsyslog_service_enabled: true
 # current state: started, stopped
 rsyslog_service_state: started
 
-# Owner
+# Owner defaults to root; there is a more secure configuration below
 # rsyslog_user: rsyslog
 # rsyslog_group: rsyslog
+# rsyslog_extra_groups: systemd-journal
+# rsyslog_user_shell: /bin/false
 
 # Files & Paths
+# WARNING: ownership will change to match rsyslog user and group
 rsyslog_work_directory: /var/spool/rsyslog
 rsyslog_logs_directory: /var/log
 rsyslog_config_file: /etc/rsyslog.conf
