@@ -10,8 +10,8 @@
   user:
     name: "{{ rsyslog_user }}"
     group: "{{ rsyslog_group }}"
-    groups: systemd-journal
-    shell: /bin/false
+    groups: "{{ rsyslog_extra_groups if rsyslog_extra_groups is defined }}"
+    shell: "{{ rsyslog_user_shell if rsyslog_user_shell is defined }}"
     create_home: false
     system: true
   when: rsyslog_user is defined and rsyslog_group is defined

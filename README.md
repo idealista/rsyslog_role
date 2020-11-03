@@ -35,7 +35,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.rsyslog_role
-  version: 2.1.0
+  version: 2.2.0
   name: rsyslog
 ```
 
