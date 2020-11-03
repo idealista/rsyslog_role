@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/rsyslog_role/tree/develop)
+
+## [2.2.0](https://github.com/idealista/rsyslog_role/tree/2.2.0)
+[Full Changelog](https://github.com/idealista/rsyslog_role/compare/2.1.0...2.2.0)
+### Changed
 - *[#23](https://github.com/idealista/rsyslog_role/issues/23) Improve user configuration reliability* @frantsao
 - *Updated test dependecies (because security issue cryptography < 3.2)* @frantsao
 
