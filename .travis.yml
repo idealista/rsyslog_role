@@ -13,6 +13,7 @@ env:
     - MOLECULE_DISTRO=debian:jessie-slim
     - MOLECULE_DISTRO=debian:stretch-slim
     - MOLECULE_DISTRO=debian:buster-slim
+    - MOLECULE_DISTRO=ubuntu:focal
 script:
   - pipenv run molecule test
 

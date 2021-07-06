@@ -16,17 +16,6 @@
     system: true
   when: rsyslog_user is defined and rsyslog_group is defined
 
-- name: RSYSLOG | Ensure rsyslog dirs exist
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: "{{ rsyslog_user | default('root') }}"
-    group: "{{ rsyslog_group | default('root') }}"
-  loop:
-    - "{{ rsyslog_work_directory }}"
-    - "{{ rsyslog_include_config_matcher | dirname }}"
-    - "{{ rsyslog_logs_directory }}"
-
 - name: RSYSLOG | Install required libs
   apt:
     name: "{{ rsyslog_required_libs }}"
@@ -46,6 +35,17 @@
   register: rsyslog_core_package_installed
   until: rsyslog_core_package_installed is succeeded
   notify: restart rsyslog
+
+- name: RSYSLOG | Ensure rsyslog dirs exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ rsyslog_user | default('root') }}"
+    group: "{{ rsyslog_group | default('root') }}"
+  loop:
+    - "{{ rsyslog_work_directory }}"
+    - "{{ rsyslog_include_config_matcher | dirname }}"
+    - "{{ rsyslog_logs_directory }}"
 
 - name: RSYSLOG | Install rsyslog feature packages
   apt:
