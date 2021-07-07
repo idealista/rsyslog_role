@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/rsyslog_role/tree/develop)
 
+### Added
+- [#33](https://github.com/idealista/rsyslog_role/issues/33) *[FEATURE] multifunctional role* @marcelogalmor
+
 ## [2.2.0](https://github.com/idealista/rsyslog_role/tree/2.2.0)
 [Full Changelog](https://github.com/idealista/rsyslog_role/compare/2.1.0...2.2.0)
 ### Changed
