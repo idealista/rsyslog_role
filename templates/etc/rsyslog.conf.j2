@@ -49,7 +49,7 @@ $PrivDropToGroup {{ rsyslog_group | default('root') }}
 #
 $FileOwner {{ rsyslog_user | default('root') }}
 $FileGroup {{ rsyslog_user | default('adm') }}
-$FileCreateMode 0640
+$FileCreateMode {{ rsyslog_permissions | default('0640') }}
 $DirCreateMode 0755
 $Umask 0022
 
