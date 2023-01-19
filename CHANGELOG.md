@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased](https://github.com/idealista/rsyslog_role/tree/develop)
 
+## [2.2.2](https://github.com/idealista/rsyslog_role/tree/2.2.2)
+[Full Changelog](https://github.com/idealista/rsyslog_role/compare/2.2.1...2.2.2)
+### Changed
+- *[#36](https://github.com/idealista/rsyslog_role/issues/36) Parameterize config template and file permissions* @santi-eidu
+
+## [2.2.1](https://github.com/idealista/rsyslog_role/tree/2.2.1)
+[Full Changelog](https://github.com/idealista/rsyslog_role/compare/2.2.0...2.2.1)
+
 ### Added
 - [#33](https://github.com/idealista/rsyslog_role/issues/33) *[FEATURE] multifunctional role* @marcelogalmor
 

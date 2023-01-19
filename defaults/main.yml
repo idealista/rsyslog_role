@@ -3,6 +3,7 @@
 rsyslog_package: "rsyslog"
 rsyslog_use_pidfile: true
 rsyslog_pidfile: /var/run/rsyslogd.pid
+__rsyslog_force_apt: false
 # If you want to set a package version; else the role will install the latest version:
 # Debian Buster
 # rsyslog_package: "rsyslog=8.1901.0-1"
@@ -23,6 +24,7 @@ rsyslog_service_state: started
 # Owner defaults to root; there is a more secure configuration below
 # rsyslog_user: rsyslog
 # rsyslog_group: rsyslog
+# rsyslog_permissions: 0640
 # rsyslog_extra_groups: systemd-journal
 # rsyslog_user_shell: /bin/false
 
@@ -30,6 +32,7 @@ rsyslog_service_state: started
 # WARNING: ownership will change to match rsyslog user and group
 rsyslog_work_directory: /var/spool/rsyslog
 rsyslog_logs_directory: /var/log
+rsyslog_template_config_file: etc/rsyslog.conf.j2
 rsyslog_config_file: /etc/rsyslog.conf
 rsyslog_include_config_path: /etc/rsyslog.d
 rsyslog_include_config_matcher: "{{ rsyslog_include_config_path }}/*.conf"
