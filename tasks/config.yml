@@ -2,7 +2,7 @@
 
 - name: RSYSLOG | Deploy rsyslog configuration
   template:
-    src: etc/rsyslog.conf.j2
+    src: "{{ rsyslog_template_config_file }}"
     dest: "{{ rsyslog_config_file }}"
     owner: "{{ rsyslog_user | default('root') }}"
     group: "{{ rsyslog_group | default('root') }}"
