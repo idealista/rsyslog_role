@@ -31,6 +31,7 @@
     name: "{{ rsyslog_package }}"
     state: present
     update_cache: true
+    force: "{{ __rsyslog_force_apt }}"
     cache_valid_time: 3600
   register: rsyslog_core_package_installed
   until: rsyslog_core_package_installed is succeeded
@@ -52,6 +53,7 @@
     name: "{{ rsyslog_feature_packages }}"
     state: present
     update_cache: true
+    force: "{{ __rsyslog_force_apt }}"
     cache_valid_time: 3600
   register: rsyslog_feature_packages_installed
   until: rsyslog_feature_packages_installed is succeeded

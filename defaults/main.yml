@@ -3,6 +3,7 @@
 rsyslog_package: "rsyslog"
 rsyslog_use_pidfile: true
 rsyslog_pidfile: /var/run/rsyslogd.pid
+__rsyslog_force_apt: false
 # If you want to set a package version; else the role will install the latest version:
 # Debian Buster
 # rsyslog_package: "rsyslog=8.1901.0-1"
